@@ -1,8 +1,5 @@
 <script setup>
-  import Header from './components/Header.vue'
-  
-  
-  
+import Header from "./components/Header.vue";
 </script>
 
 <template>
@@ -13,13 +10,11 @@
 </template>
 
 <style scoped>
-  .main {
-    background-color:rgb(246, 255, 255);
-    width: 90%;
-    margin: 40px auto;
-    padding: 10px 20px;
-    border-radius: 7px;
-  }
-
-  
+.main {
+  background-color: rgb(246, 255, 255);
+  width: 90%;
+  margin: 40px auto;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
 </style>

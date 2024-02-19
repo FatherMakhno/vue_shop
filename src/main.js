@@ -8,6 +8,10 @@ import CardPage from './pages/CardPage.vue'
 
 const app = createApp(App)
 
+/**
+ * FIXIT: На маленьком приложении ничего страшного
+ * Но лучше вынеси роутер в отдельную директорию
+ */
 const routes = [
     { path: '/', name: 'Home', component: Home },
     { path: '/card/:id', name: 'Card', component: CardPage, props: true}

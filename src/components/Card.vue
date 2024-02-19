@@ -1,16 +1,19 @@
 <script setup>
 defineProps ({
+  // FIXIT: Нет смысла передавать всё по отдельности, передавай в пропсы сразу item
     id: Number,
     image: String,
     title: String,
     price: Number
 })
 
+// FIXIT: ???
 const s = 3;
 </script>
 
 <template>
     <div class="card">
+      <!-- FIXIT: Используй либо параметр, либо параметры запроса -->
         <router-link :to="{name: 'Card', params: {id: id}, query: {id: id}}">
             <img :src="image" class="card_img">
         </router-link>
@@ -21,6 +24,7 @@ const s = 3;
 </template>
 
 <style scoped>
+/*  FIXIT: CSS использовать это нормально, но попробуй использовать SCSS */
     .card {
         margin: 10px auto;
         width: 85%;

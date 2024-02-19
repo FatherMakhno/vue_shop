@@ -15,6 +15,10 @@
 
     onMounted(async () => {
         try {
+          /*
+          * FIXIT: Подключи Pinia или VueX и вынеси это в стор, например productStore
+          * в нём уже определи состояние, экшены и геттеры для работы с данными продукта
+          **/
         const { data } = await axios.get('https://fakestoreapi.com/products/' + id.value)
         items.value = data
         console.log(items.value)

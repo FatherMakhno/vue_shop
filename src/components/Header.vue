@@ -16,6 +16,7 @@
 </template>
 
 <style scoped>
+/*  FIXIT: CSS использовать это нормально, но попробуй использовать SCSS */
     .header {
         display: flex;
         justify-content: space-between;

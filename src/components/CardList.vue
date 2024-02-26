@@ -1,21 +1,18 @@
 <script setup>
 import Card from "./Card.vue";
+import { ref } from "vue";
+
 defineProps({
-  items: Array,
+  items: Object,
+  required: true,
 });
 </script>
 
 <template>
-  <div class="card_list">
-    <Card
-      v-for="item in items"
-      :key="item.id"
-      :id="item.id"
-      :image="item.image"
-      :title="item.title"
-      :price="item.price"
-    />
+  <div v-if="items !== undefined" class="card_list">
+    <Card v-for="item in items" :key="item.id" :item="item" />
   </div>
+  <div v-else>Товаров нет</div>
 </template>
 
 <style scoped>

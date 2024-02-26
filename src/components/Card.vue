@@ -1,9 +1,7 @@
 <script setup>
 defineProps({
-  id: Number,
-  image: String,
-  title: String,
-  price: Number,
+  item: Object,
+  required: true,
 });
 
 const s = 3;
@@ -11,11 +9,11 @@ const s = 3;
 
 <template>
   <div class="card">
-    <router-link :to="{ name: 'Card', params: { id: id }, query: { id: id } }">
-      <img :src="image" class="card_img" />
+    <router-link :to="{ name: 'Card', params: { id: item.id } }">
+      <img :src="item.image" class="card_img" />
     </router-link>
-    <div class="card_title">{{ title }}</div>
-    <div class="card_price"><b>Price:</b> {{ price }}</div>
+    <div class="card_title">{{ item.title }}</div>
+    <div class="card_price"><b>Price:</b> {{ item.price }}</div>
     <button>Добавить в корзину</button>
   </div>
 </template>

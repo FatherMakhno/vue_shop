@@ -2,35 +2,25 @@
 import { computed, onMounted, ref } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
-
-//const id = computed(() => this.$route.params.id)
-// defineProps ({
-//     id: Number
-// })
+import { useFakeStore } from "../stores/FakeStore.js";
 
 const route = useRoute();
 const id = ref(route.params.id);
 
-const items = ref([]);
-
+const { products, isLoading, loadProducts } = useFakeStore();
 onMounted(async () => {
-  try {
-    const { data } = await axios.get(
-      "https://fakestoreapi.com/products/" + id.value
-    );
-    items.value = data;
-    console.log(items.value);
-  } catch (err) {
-    console.log(err);
+  const id = ref(route.params.id);
+  if (id.value) {
+    loadProducts(id.value);
   }
 });
 </script>
 
 <template>
-  <div class="card_title">Title {{ items.title }}</div>
-  <img :src="items.image" class="card_img" />
-  <div class="card_descr"><b>Description:</b> {{ items.description }}</div>
-  <div class="card_price"><b>Price:</b> {{ items.price }}</div>
+  <div class="card_title">{{ products.title }}</div>
+  <img :src="products.image" class="card_img" />
+  <div class="card_descr"><b>Description:</b> {{ products.description }}</div>
+  <div class="card_price"><b>Price:</b> {{ products.price }}</div>
 </template>
 
 <style scoped>

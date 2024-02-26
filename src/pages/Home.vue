@@ -1,23 +1,16 @@
 <script setup>
 import CardList from "../components/CardList.vue";
-import axios from "axios";
+import { useFakeStore } from "../stores/FakeStore.js";
 
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
-const items = ref([]);
-
+const { products, isLoading, loadProducts } = useFakeStore();
 onMounted(async () => {
-  try {
-    const { data } = await axios.get("https://fakestoreapi.com/products");
-    items.value = data;
-    console.log(items.value);
-  } catch (err) {
-    console.log(err);
-  }
+  loadProducts();
 });
 </script>
 
 <template>
   <h2>Все товары</h2>
-  <CardList :items="items" />
+  <CardList :items="products" />
 </template>

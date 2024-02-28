@@ -11,6 +11,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h2>Все товары</h2>
+  <div class="top">
+    <h2>Все товары</h2>
+    <div class="filters">
+      <select name="" class="">
+        <option value="name">По названию</option>
+        <option value="price">По цене (дешевые)</option>
+      </select>
+    </div>
+  </div>
   <CardList :items="products" />
 </template>

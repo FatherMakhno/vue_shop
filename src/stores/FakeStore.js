@@ -6,13 +6,13 @@ export const useFakeStore = defineStore("products", () => {
   const products = ref([]);
   const isLoading = ref(false);
 
-  const loadProducts = async (id) => {
+  const loadProducts = async (value) => {
     try {
-      if (id == undefined) {
+      if (value == undefined) {
         var response = await axios.get("https:/fakestoreapi.com/products");
       } else {
         var response = await axios.get(
-          "https://fakestoreapi.com/products/" + id
+          "https://fakestoreapi.com/products/" + value
         );
       }
       products.value = response.data;
